@@ -1,15 +1,12 @@
-import express, {
-  type Application,
-  type Request,
-  type Response,
-} from "express";
-const app: Application = express();
-const port = 3000;
+import app from "./app";
+import config from "./app/config";
+// import app from "./app.js"
 
-app.get("/", (req: Request, res: Response) => {
-  res.send("Hello World from new!");
-});
+const port = config.port
+
+//! routes
+//! middleware
 
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
+  console.log(`Example app listening on port http://localhost:${port}`);
 });
