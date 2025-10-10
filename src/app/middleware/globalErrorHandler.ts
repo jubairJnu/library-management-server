@@ -1,7 +1,5 @@
 import { status } from "http-status";
-
 import { NextFunction, Request, Response } from "express";
-import config from "../config";
 
 const globalErrorHandler = (
   err: any,
@@ -9,14 +7,13 @@ const globalErrorHandler = (
   res: Response,
   next: NextFunction
 ) => {
-  res.status(status.BAD_REQUEST).json({
-    message: "Internal Server Error",
-    error: err,
-    stack: config.node_env !== "production" && err.stack,
-    suceess: false,
+  res.status(err.status || status.INTERNAL_SERVER_ERROR).json({
+    success: false,
+    statusCode: status.INTERNAL_SERVER_ERROR,
+    message: "Internal server error",
+    err: err,
+    stack: err?.stack,
   });
 };
 
 export default globalErrorHandler;
-
-

@@ -4,7 +4,7 @@ import express, {
   type Response,
 } from "express";
 import globalErrorHandler from "./app/middleware/globalErrorHandler";
-import { notFound } from "./app/middleware/notFound";
+import notFound from "./app/middleware/notFound";
 
 const app: Application = express();
 
