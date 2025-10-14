@@ -4,6 +4,7 @@ import express, {
   type Response,
 } from "express";
 import { globalErrorHandler } from "./app/middleware/globalErrorHander";
+import { notFound } from "./app/middleware/notFound";
 
 const app: Application = express();
 
@@ -17,5 +18,6 @@ app.get("/new", (req: Request, res: Response) => {
 // global error handler
 
 app.use(globalErrorHandler);
+app.use(notFound);
 
 export default app;
