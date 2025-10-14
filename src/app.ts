@@ -3,8 +3,7 @@ import express, {
   type Request,
   type Response,
 } from "express";
-import globalErrorHandler from "./app/middleware/globalErrorHandler";
-import notFound from "./app/middleware/notFound";
+import { globalErrorHandler } from "./app/middleware/globalErrorHander";
 
 const app: Application = express();
 
@@ -15,7 +14,8 @@ app.get("/new", (req: Request, res: Response) => {
   res.send("Hello World from new file system and new live !");
 });
 
+// global error handler
+
 app.use(globalErrorHandler);
-app.use(notFound);
 
 export default app;
