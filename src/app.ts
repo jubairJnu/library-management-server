@@ -5,7 +5,8 @@ import express, {
 } from "express";
 import { globalErrorHandler } from "./app/middleware/globalErrorHander";
 import { notFound } from "./app/middleware/notFound";
-import { userRoutes } from "./app/modules/users/user.routes";
+
+import router from "./app/routes";
 
 const app: Application = express();
 
@@ -20,7 +21,7 @@ app.get("/new", (req: Request, res: Response) => {
 
 // ? route use
 
-app.use("/users", userRoutes);
+app.use("/", router);
 
 // global error handler
 
