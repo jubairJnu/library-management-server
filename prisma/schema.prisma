@@ -45,6 +45,7 @@ bookcondition BookCondition[]
   @@map("users")
 }
 
+// ! step 2
 model Membership {
   id          String      @id @default(uuid())
   userId      String      @unique
